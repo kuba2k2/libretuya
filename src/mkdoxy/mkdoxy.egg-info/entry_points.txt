@@ -1,0 +1,3 @@
+[mkdocs.plugins]
+mkdoxy = mkdoxy.plugin:MkDoxy
+

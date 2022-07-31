@@ -1,0 +1,3498 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://kuba2k2.github.io/libretuya/ltapi/lt__logger_8h/">
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.3.8">
+    
+    
+      
+        <title>Logger - LibreTuya</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.1d29e8d0.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.cbb835fc.min.css">
+        
+      
+      
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#file-lt_loggerh" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="LibreTuya" class="md-header__button md-logo" aria-label="LibreTuya" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            LibreTuya
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Logger
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/kuba2k2/libretuya" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="LibreTuya" class="md-nav__button md-logo" aria-label="LibreTuya" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    LibreTuya
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/kuba2k2/libretuya" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          😊 Getting started
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="😊 Getting started" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          😊 Getting started
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/getting-started/" class="md-nav__link">
+        Start here
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/getting-started/uploading/" class="md-nav__link">
+        Uploading
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/reference/config/" class="md-nav__link">
+        Options & config
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_4" type="checkbox" id="__nav_2_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_4">
+          Examples
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Examples" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_4">
+          <span class="md-nav__icon md-icon"></span>
+          Examples
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../examples/PinScan/" class="md-nav__link">
+        PinScan
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/projects/esphome/" class="md-nav__link">
+        ESPHome port
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/status/supported/" class="md-nav__link">
+        💻 Boards & CPU list
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/status/arduino/" class="md-nav__link">
+        ✔️ Implementation status
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5">
+          Supported chip families
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Supported chip families" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Supported chip families
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_1" type="checkbox" id="__nav_5_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5_1">
+          Beken BK72xx
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Beken BK72xx" data-md-level="2">
+        <label class="md-nav__title" for="__nav_5_1">
+          <span class="md-nav__icon md-icon"></span>
+          Beken BK72xx
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/platform/beken-72xx/" class="md-nav__link">
+        General info
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/platform/beken-72xx/flashing/" class="md-nav__link">
+        Flashing
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_2" type="checkbox" id="__nav_5_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5_2">
+          Realtek AmebaZ Series
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Realtek AmebaZ Series" data-md-level="2">
+        <label class="md-nav__title" for="__nav_5_2">
+          <span class="md-nav__icon md-icon"></span>
+          Realtek AmebaZ Series
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/platform/realtek/" class="md-nav__link">
+        General info
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/platform/realtek-ambz/flashing/" class="md-nav__link">
+        Flashing (AmebaZ)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/platform/realtek/debugging/" class="md-nav__link">
+        Debugging
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/platform/realtek/exception-decoder/" class="md-nav__link">
+        Exception decoder
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_2_5" type="checkbox" id="__nav_5_2_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5_2_5">
+          C library
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="C library" data-md-level="3">
+        <label class="md-nav__title" for="__nav_5_2_5">
+          <span class="md-nav__icon md-icon"></span>
+          C library
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/platform/realtek-ambz/stdlib/" class="md-nav__link">
+        Built-in functions
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/platform/realtek-ambz/memory-management/" class="md-nav__link">
+        Memory management
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_3" type="checkbox" id="__nav_5_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5_3">
+          All supported boards
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="All supported boards" data-md-level="2">
+        <label class="md-nav__title" for="__nav_5_3">
+          <span class="md-nav__icon md-icon"></span>
+          All supported boards
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../boards/generic-bk7231n-qfn32-tuya/" class="md-nav__link">
+        Generic - BK7231N (Tuya QFN32)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../boards/generic-bk7231t-qfn32-tuya/" class="md-nav__link">
+        Generic - BK7231T (Tuya QFN32)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../boards/generic-rtl8710bn-2mb-468k/" class="md-nav__link">
+        Generic - RTL8710BN (2M/468k)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../boards/generic-rtl8710bn-2mb-788k/" class="md-nav__link">
+        Generic - RTL8710BN (2M/788k)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../boards/generic-rtl8720cf-2mb-992k/" class="md-nav__link">
+        Generic - RTL8720CF (2M/992k)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../boards/bw12/" class="md-nav__link">
+        BW12
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../boards/bw15/" class="md-nav__link">
+        BW15
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../boards/cb2s/" class="md-nav__link">
+        CB2S
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../boards/wb2l/" class="md-nav__link">
+        WB2L
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../boards/wb2s/" class="md-nav__link">
+        WB2S
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../boards/wb3l/" class="md-nav__link">
+        WB3L
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../boards/wb3s/" class="md-nav__link">
+        WB3S
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../boards/wr2/" class="md-nav__link">
+        WR2
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../boards/wr2e/" class="md-nav__link">
+        WR2E
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../boards/wr3/" class="md-nav__link">
+        WR3
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../boards/wr3e/" class="md-nav__link">
+        WR3E
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../boards/wr3n/" class="md-nav__link">
+        WR3N
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../boards/wr2l/" class="md-nav__link">
+        WR2L
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../boards/wr2le/" class="md-nav__link">
+        WR2LE
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../boards/wr3l/" class="md-nav__link">
+        WR3L
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../boards/wr3le/" class="md-nav__link">
+        WR3LE
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../boards/lsc-lma35/" class="md-nav__link">
+        LSC LMA35
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../boards/generic-native/" class="md-nav__link">
+        Generic - Host-native
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6">
+          API & libraries
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="API & libraries" data-md-level="1">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          API & libraries
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/reference/config/" class="md-nav__link">
+        Options & config
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_2" type="checkbox" id="__nav_6_2" checked>
+      
+      
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../docs/reference/lt-api/">LibreTuya API</a>
+          
+            <label for="__nav_6_2">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="LibreTuya API" data-md-level="2">
+        <label class="md-nav__title" for="__nav_6_2">
+          <span class="md-nav__icon md-icon"></span>
+          LibreTuya API
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../class_libre_tuya/" class="md-nav__link">
+        LT class reference
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../_libre_tuya_a_p_i_8h/" class="md-nav__link">
+        Common methods
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../_libre_tuya_custom_8h/" class="md-nav__link">
+        Wiring custom methods
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Logger
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Logger
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#public-functions" class="md-nav__link">
+    Public Functions
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#macros" class="md-nav__link">
+    Macros
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#public-functions-documentation" class="md-nav__link">
+    Public Functions Documentation
+  </a>
+  
+    <nav class="md-nav" aria-label="Public Functions Documentation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#function-lt_log" class="md-nav__link">
+    function lt_log
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-lt_log_set_port" class="md-nav__link">
+    function lt_log_set_port
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#macro-definition-documentation" class="md-nav__link">
+    Macro Definition Documentation
+  </a>
+  
+    <nav class="md-nav" aria-label="Macro Definition Documentation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#define-esp_early_logd" class="md-nav__link">
+    define ESP_EARLY_LOGD
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#define-esp_early_loge" class="md-nav__link">
+    define ESP_EARLY_LOGE
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#define-esp_early_logi" class="md-nav__link">
+    define ESP_EARLY_LOGI
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#define-esp_early_logv" class="md-nav__link">
+    define ESP_EARLY_LOGV
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#define-esp_early_logw" class="md-nav__link">
+    define ESP_EARLY_LOGW
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#define-esp_logd" class="md-nav__link">
+    define ESP_LOGD
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#define-esp_loge" class="md-nav__link">
+    define ESP_LOGE
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#define-esp_logi" class="md-nav__link">
+    define ESP_LOGI
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#define-esp_logv" class="md-nav__link">
+    define ESP_LOGV
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#define-esp_logw" class="md-nav__link">
+    define ESP_LOGW
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#define-ets_printf" class="md-nav__link">
+    define ETS_PRINTF
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#define-lt_d" class="md-nav__link">
+    define LT_D
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#define-lt_d_mod" class="md-nav__link">
+    define LT_D_MOD
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#define-lt_d_ssl" class="md-nav__link">
+    define LT_D_SSL
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#define-lt_d_wap" class="md-nav__link">
+    define LT_D_WAP
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#define-lt_d_wc" class="md-nav__link">
+    define LT_D_WC
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#define-lt_d_wg" class="md-nav__link">
+    define LT_D_WG
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#define-lt_d_ws" class="md-nav__link">
+    define LT_D_WS
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#define-lt_d_wsta" class="md-nav__link">
+    define LT_D_WSTA
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#define-lt_e" class="md-nav__link">
+    define LT_E
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#define-lt_errno" class="md-nav__link">
+    define LT_ERRNO
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#define-lt_errno_lez" class="md-nav__link">
+    define LT_ERRNO_LEZ
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#define-lt_errno_lz" class="md-nav__link">
+    define LT_ERRNO_LZ
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#define-lt_errno_nz" class="md-nav__link">
+    define LT_ERRNO_NZ
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#define-lt_f" class="md-nav__link">
+    define LT_F
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#define-lt_heap_i" class="md-nav__link">
+    define LT_HEAP_I
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#define-lt_i" class="md-nav__link">
+    define LT_I
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#define-lt_log" class="md-nav__link">
+    define LT_LOG
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#define-lt_ret" class="md-nav__link">
+    define LT_RET
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#define-lt_ret_lez" class="md-nav__link">
+    define LT_RET_LEZ
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#define-lt_ret_lz" class="md-nav__link">
+    define LT_RET_LZ
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#define-lt_ret_nz" class="md-nav__link">
+    define LT_RET_NZ
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#define-lt_t" class="md-nav__link">
+    define LT_T
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#define-lt_t_mod" class="md-nav__link">
+    define LT_T_MOD
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#define-lt_t_ssl" class="md-nav__link">
+    define LT_T_SSL
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#define-lt_t_wap" class="md-nav__link">
+    define LT_T_WAP
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#define-lt_t_wc" class="md-nav__link">
+    define LT_T_WC
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#define-lt_t_wg" class="md-nav__link">
+    define LT_T_WG
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#define-lt_t_ws" class="md-nav__link">
+    define LT_T_WS
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#define-lt_t_wsta" class="md-nav__link">
+    define LT_T_WSTA
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#define-lt_v" class="md-nav__link">
+    define LT_V
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#define-lt_v_ssl" class="md-nav__link">
+    define LT_V_SSL
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#define-lt_v_wap" class="md-nav__link">
+    define LT_V_WAP
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#define-lt_v_wc" class="md-nav__link">
+    define LT_V_WC
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#define-lt_v_wg" class="md-nav__link">
+    define LT_V_WG
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#define-lt_v_ws" class="md-nav__link">
+    define LT_V_WS
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#define-lt_v_wsta" class="md-nav__link">
+    define LT_V_WSTA
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#define-lt_w" class="md-nav__link">
+    define LT_W
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#define-ets_printf_1" class="md-nav__link">
+    define ets_printf
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#define-isr_log_d" class="md-nav__link">
+    define isr_log_d
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#define-isr_log_e" class="md-nav__link">
+    define isr_log_e
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#define-isr_log_i" class="md-nav__link">
+    define isr_log_i
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#define-isr_log_n" class="md-nav__link">
+    define isr_log_n
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#define-isr_log_v" class="md-nav__link">
+    define isr_log_v
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#define-isr_log_w" class="md-nav__link">
+    define isr_log_w
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#define-log_d" class="md-nav__link">
+    define log_d
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#define-log_e" class="md-nav__link">
+    define log_e
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#define-log_i" class="md-nav__link">
+    define log_i
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#define-log_n" class="md-nav__link">
+    define log_n
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#define-log_printf" class="md-nav__link">
+    define log_printf
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#define-log_v" class="md-nav__link">
+    define log_v
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#define-log_w" class="md-nav__link">
+    define log_w
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../_chip_type_8h_source/" class="md-nav__link">
+        Chip & family IDs
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lt__posix__api_8h/" class="md-nav__link">
+        POSIX utilities
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_3" type="checkbox" id="__nav_6_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6_3">
+          Common API
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Common API" data-md-level="2">
+        <label class="md-nav__title" for="__nav_6_3">
+          <span class="md-nav__icon md-icon"></span>
+          Common API
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../classfs_1_1_f_s/" class="md-nav__link">
+        FS
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../class_i_preferences/" class="md-nav__link">
+        Preferences
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../class_software_serial/" class="md-nav__link">
+        SoftwareSerial
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_3_4" type="checkbox" id="__nav_6_3_4" >
+      
+      
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../class_wi_fi_class/">WiFi API</a>
+          
+            <label for="__nav_6_3_4">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="WiFi API" data-md-level="3">
+        <label class="md-nav__title" for="__nav_6_3_4">
+          <span class="md-nav__icon md-icon"></span>
+          WiFi API
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../class_i_wi_fi_client/" class="md-nav__link">
+        TCP Client
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../class_i_wi_fi_client_secure/" class="md-nav__link">
+        SSL Client
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../class_i_wi_fi_server/" class="md-nav__link">
+        TCP Server
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_4" type="checkbox" id="__nav_6_4" >
+      
+      
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../docs/libs-built-in/">LibreTuya libraries</a>
+          
+            <label for="__nav_6_4">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="LibreTuya libraries" data-md-level="2">
+        <label class="md-nav__title" for="__nav_6_4">
+          <span class="md-nav__icon md-icon"></span>
+          LibreTuya libraries
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../classbase64/" class="md-nav__link">
+        base64
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../class_flash_class/" class="md-nav__link">
+        Flash
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../class_h_t_t_p_client/" class="md-nav__link">
+        HTTPClient
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../classm_d_n_s/" class="md-nav__link">
+        mDNS
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_4_5" type="checkbox" id="__nav_6_4_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6_4_5">
+          NetUtils
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="NetUtils" data-md-level="3">
+        <label class="md-nav__title" for="__nav_6_4_5">
+          <span class="md-nav__icon md-icon"></span>
+          NetUtils
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../class_mbed_t_l_s_client/" class="md-nav__link">
+        ssl/MbedTLSClient
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../classarduino_1_1_i_pv6_address/" class="md-nav__link">
+        IPv6Address
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../class_lw_i_p_rx_buffer/" class="md-nav__link">
+        LwIPRxBuffer
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../class_update_class/" class="md-nav__link">
+        Update
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../class_web_server/" class="md-nav__link">
+        WebServer
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../class_wi_fi_multi/" class="md-nav__link">
+        WiFiMulti
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/libs-3rd-party/" class="md-nav__link">
+        Third party libraries
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_6" type="checkbox" id="__nav_6_6" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6_6">
+          Full documentation
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Full documentation" data-md-level="2">
+        <label class="md-nav__title" for="__nav_6_6">
+          <span class="md-nav__icon md-icon"></span>
+          Full documentation
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../classes/" class="md-nav__link">
+        Classes
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../functions/" class="md-nav__link">
+        Functions
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../macros/" class="md-nav__link">
+        Macros
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../files/" class="md-nav__link">
+        File list
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/reference/project-structure/" class="md-nav__link">
+        📁 Project structure
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_8" type="checkbox" id="__nav_6_8" >
+      
+      
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../docs/ota/">✈️ OTA format</a>
+          
+            <label for="__nav_6_8">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="✈️ OTA format" data-md-level="2">
+        <label class="md-nav__title" for="__nav_6_8">
+          <span class="md-nav__icon md-icon"></span>
+          ✈️ OTA format
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/ota/uf2ota/" class="md-nav__link">
+        uf2ota.py tool
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/ota/library/" class="md-nav__link">
+        uf2ota.h library
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../uf2ota_8h/" class="md-nav__link">
+        uf2ota.h reference
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../TODO/" class="md-nav__link">
+        📓 TODO
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docs/resources/" class="md-nav__link">
+        🔗 Resources
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#public-functions" class="md-nav__link">
+    Public Functions
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#macros" class="md-nav__link">
+    Macros
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#public-functions-documentation" class="md-nav__link">
+    Public Functions Documentation
+  </a>
+  
+    <nav class="md-nav" aria-label="Public Functions Documentation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#function-lt_log" class="md-nav__link">
+    function lt_log
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function-lt_log_set_port" class="md-nav__link">
+    function lt_log_set_port
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#macro-definition-documentation" class="md-nav__link">
+    Macro Definition Documentation
+  </a>
+  
+    <nav class="md-nav" aria-label="Macro Definition Documentation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#define-esp_early_logd" class="md-nav__link">
+    define ESP_EARLY_LOGD
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#define-esp_early_loge" class="md-nav__link">
+    define ESP_EARLY_LOGE
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#define-esp_early_logi" class="md-nav__link">
+    define ESP_EARLY_LOGI
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#define-esp_early_logv" class="md-nav__link">
+    define ESP_EARLY_LOGV
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#define-esp_early_logw" class="md-nav__link">
+    define ESP_EARLY_LOGW
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#define-esp_logd" class="md-nav__link">
+    define ESP_LOGD
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#define-esp_loge" class="md-nav__link">
+    define ESP_LOGE
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#define-esp_logi" class="md-nav__link">
+    define ESP_LOGI
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#define-esp_logv" class="md-nav__link">
+    define ESP_LOGV
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#define-esp_logw" class="md-nav__link">
+    define ESP_LOGW
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#define-ets_printf" class="md-nav__link">
+    define ETS_PRINTF
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#define-lt_d" class="md-nav__link">
+    define LT_D
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#define-lt_d_mod" class="md-nav__link">
+    define LT_D_MOD
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#define-lt_d_ssl" class="md-nav__link">
+    define LT_D_SSL
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#define-lt_d_wap" class="md-nav__link">
+    define LT_D_WAP
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#define-lt_d_wc" class="md-nav__link">
+    define LT_D_WC
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#define-lt_d_wg" class="md-nav__link">
+    define LT_D_WG
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#define-lt_d_ws" class="md-nav__link">
+    define LT_D_WS
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#define-lt_d_wsta" class="md-nav__link">
+    define LT_D_WSTA
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#define-lt_e" class="md-nav__link">
+    define LT_E
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#define-lt_errno" class="md-nav__link">
+    define LT_ERRNO
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#define-lt_errno_lez" class="md-nav__link">
+    define LT_ERRNO_LEZ
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#define-lt_errno_lz" class="md-nav__link">
+    define LT_ERRNO_LZ
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#define-lt_errno_nz" class="md-nav__link">
+    define LT_ERRNO_NZ
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#define-lt_f" class="md-nav__link">
+    define LT_F
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#define-lt_heap_i" class="md-nav__link">
+    define LT_HEAP_I
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#define-lt_i" class="md-nav__link">
+    define LT_I
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#define-lt_log" class="md-nav__link">
+    define LT_LOG
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#define-lt_ret" class="md-nav__link">
+    define LT_RET
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#define-lt_ret_lez" class="md-nav__link">
+    define LT_RET_LEZ
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#define-lt_ret_lz" class="md-nav__link">
+    define LT_RET_LZ
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#define-lt_ret_nz" class="md-nav__link">
+    define LT_RET_NZ
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#define-lt_t" class="md-nav__link">
+    define LT_T
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#define-lt_t_mod" class="md-nav__link">
+    define LT_T_MOD
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#define-lt_t_ssl" class="md-nav__link">
+    define LT_T_SSL
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#define-lt_t_wap" class="md-nav__link">
+    define LT_T_WAP
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#define-lt_t_wc" class="md-nav__link">
+    define LT_T_WC
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#define-lt_t_wg" class="md-nav__link">
+    define LT_T_WG
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#define-lt_t_ws" class="md-nav__link">
+    define LT_T_WS
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#define-lt_t_wsta" class="md-nav__link">
+    define LT_T_WSTA
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#define-lt_v" class="md-nav__link">
+    define LT_V
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#define-lt_v_ssl" class="md-nav__link">
+    define LT_V_SSL
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#define-lt_v_wap" class="md-nav__link">
+    define LT_V_WAP
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#define-lt_v_wc" class="md-nav__link">
+    define LT_V_WC
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#define-lt_v_wg" class="md-nav__link">
+    define LT_V_WG
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#define-lt_v_ws" class="md-nav__link">
+    define LT_V_WS
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#define-lt_v_wsta" class="md-nav__link">
+    define LT_V_WSTA
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#define-lt_w" class="md-nav__link">
+    define LT_W
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#define-ets_printf_1" class="md-nav__link">
+    define ets_printf
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#define-isr_log_d" class="md-nav__link">
+    define isr_log_d
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#define-isr_log_e" class="md-nav__link">
+    define isr_log_e
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#define-isr_log_i" class="md-nav__link">
+    define isr_log_i
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#define-isr_log_n" class="md-nav__link">
+    define isr_log_n
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#define-isr_log_v" class="md-nav__link">
+    define isr_log_v
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#define-isr_log_w" class="md-nav__link">
+    define isr_log_w
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#define-log_d" class="md-nav__link">
+    define log_d
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#define-log_e" class="md-nav__link">
+    define log_e
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#define-log_i" class="md-nav__link">
+    define log_i
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#define-log_n" class="md-nav__link">
+    define log_n
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#define-log_printf" class="md-nav__link">
+    define log_printf
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#define-log_v" class="md-nav__link">
+    define log_v
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#define-log_w" class="md-nav__link">
+    define log_w
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+  <a href="https://github.com/kuba2k2/libretuya/edit/master/docs/ltapi/lt__logger_8h.md" title="Edit this page" class="md-content__button md-icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
+  </a>
+
+
+
+<h1 id="file-lt_loggerh">File lt_logger.h</h1>
+<p><a href="../files/"><strong>FileList</strong></a> <strong>&gt;</strong> <a href="../dir_7957e4d193d4a425fd39fd4994c5caf1/"><strong>arduino</strong></a> <strong>&gt;</strong> <a href="../dir_035288a59a5e2ae5a9321e93b53ea147/"><strong>libretuya</strong></a> <strong>&gt;</strong> <a href="../dir_347df1905c569d672c1c85d0b1221387/"><strong>core</strong></a> <strong>&gt;</strong> <a href="./"><strong>lt_logger.h</strong></a></p>
+<p><a href="../lt__logger_8h_source/">Go to the source code of this file.</a></p>
+<ul>
+<li><code>#include "LibreTuyaConfig.h"</code></li>
+<li><code>#include &lt;stdint.h&gt;</code></li>
+</ul>
+<h2 id="public-functions">Public Functions</h2>
+<table>
+<thead>
+<tr>
+<th align="right">Type</th>
+<th align="left">Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="right">void</td>
+<td align="left"><a href="#function-lt_log"><strong>lt_log</strong></a> (const uint8_t level, const char * caller, const unsigned short line, const char * format, ...) <br></td>
+</tr>
+<tr>
+<td align="right">void</td>
+<td align="left"><a href="#function-lt_log_set_port"><strong>lt_log_set_port</strong></a> (uint8_t port) <br><em>Change log output port.</em></td>
+</tr>
+</tbody>
+</table>
+<h2 id="macros">Macros</h2>
+<table>
+<thead>
+<tr>
+<th align="right">Type</th>
+<th align="left">Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="right">define</td>
+<td align="left"><a href="./#define-esp_early_logd"><strong>ESP_EARLY_LOGD</strong></a> (...) LT_D(__VA_ARGS__)<br></td>
+</tr>
+<tr>
+<td align="right">define</td>
+<td align="left"><a href="./#define-esp_early_loge"><strong>ESP_EARLY_LOGE</strong></a> (...) LT_E(__VA_ARGS__)<br></td>
+</tr>
+<tr>
+<td align="right">define</td>
+<td align="left"><a href="./#define-esp_early_logi"><strong>ESP_EARLY_LOGI</strong></a> (...) LT_I(__VA_ARGS__)<br></td>
+</tr>
+<tr>
+<td align="right">define</td>
+<td align="left"><a href="./#define-esp_early_logv"><strong>ESP_EARLY_LOGV</strong></a> (...) LT_V(__VA_ARGS__)<br></td>
+</tr>
+<tr>
+<td align="right">define</td>
+<td align="left"><a href="./#define-esp_early_logw"><strong>ESP_EARLY_LOGW</strong></a> (...) LT_W(__VA_ARGS__)<br></td>
+</tr>
+<tr>
+<td align="right">define</td>
+<td align="left"><a href="./#define-esp_logd"><strong>ESP_LOGD</strong></a> (...) LT_D(__VA_ARGS__)<br></td>
+</tr>
+<tr>
+<td align="right">define</td>
+<td align="left"><a href="./#define-esp_loge"><strong>ESP_LOGE</strong></a> (...) LT_E(__VA_ARGS__)<br></td>
+</tr>
+<tr>
+<td align="right">define</td>
+<td align="left"><a href="./#define-esp_logi"><strong>ESP_LOGI</strong></a> (...) LT_I(__VA_ARGS__)<br></td>
+</tr>
+<tr>
+<td align="right">define</td>
+<td align="left"><a href="./#define-esp_logv"><strong>ESP_LOGV</strong></a> (...) LT_V(__VA_ARGS__)<br></td>
+</tr>
+<tr>
+<td align="right">define</td>
+<td align="left"><a href="./#define-esp_logw"><strong>ESP_LOGW</strong></a> (...) LT_W(__VA_ARGS__)<br></td>
+</tr>
+<tr>
+<td align="right">define</td>
+<td align="left"><a href="./#define-ets_printf"><strong>ETS_PRINTF</strong></a> (...) LT_I(__VA_ARGS__)<br></td>
+</tr>
+<tr>
+<td align="right">define</td>
+<td align="left"><a href="./#define-lt_d"><strong>LT_D</strong></a> (...) <br></td>
+</tr>
+<tr>
+<td align="right">define</td>
+<td align="left"><a href="./#define-lt_d_mod"><strong>LT_D_MOD</strong></a> (module, ...) <br></td>
+</tr>
+<tr>
+<td align="right">define</td>
+<td align="left"><a href="./#define-lt_d_ssl"><strong>LT_D_SSL</strong></a> (...) LT_D_MOD(LT_DEBUG_SSL, __VA_ARGS__)<br></td>
+</tr>
+<tr>
+<td align="right">define</td>
+<td align="left"><a href="./#define-lt_d_wap"><strong>LT_D_WAP</strong></a> (...) LT_D_MOD(LT_DEBUG_WIFI_AP, __VA_ARGS__)<br></td>
+</tr>
+<tr>
+<td align="right">define</td>
+<td align="left"><a href="./#define-lt_d_wc"><strong>LT_D_WC</strong></a> (...) LT_D_MOD(LT_DEBUG_WIFI_CLIENT, __VA_ARGS__)<br></td>
+</tr>
+<tr>
+<td align="right">define</td>
+<td align="left"><a href="./#define-lt_d_wg"><strong>LT_D_WG</strong></a> (...) LT_D_MOD(LT_DEBUG_WIFI, __VA_ARGS__)<br></td>
+</tr>
+<tr>
+<td align="right">define</td>
+<td align="left"><a href="./#define-lt_d_ws"><strong>LT_D_WS</strong></a> (...) LT_D_MOD(LT_DEBUG_WIFI_SERVER, __VA_ARGS__)<br></td>
+</tr>
+<tr>
+<td align="right">define</td>
+<td align="left"><a href="./#define-lt_d_wsta"><strong>LT_D_WSTA</strong></a> (...) LT_D_MOD(LT_DEBUG_WIFI_STA, __VA_ARGS__)<br></td>
+</tr>
+<tr>
+<td align="right">define</td>
+<td align="left"><a href="./#define-lt_e"><strong>LT_E</strong></a> (...) LT_LOG(LT_LEVEL_ERROR, __FUNCTION__, __LINE__, __VA_ARGS__)<br></td>
+</tr>
+<tr>
+<td align="right">define</td>
+<td align="left"><a href="./#define-lt_errno"><strong>LT_ERRNO</strong></a> () <br></td>
+</tr>
+<tr>
+<td align="right">define</td>
+<td align="left"><a href="./#define-lt_errno_lez"><strong>LT_ERRNO_LEZ</strong></a> (ret) <br></td>
+</tr>
+<tr>
+<td align="right">define</td>
+<td align="left"><a href="./#define-lt_errno_lz"><strong>LT_ERRNO_LZ</strong></a> (ret) <br></td>
+</tr>
+<tr>
+<td align="right">define</td>
+<td align="left"><a href="./#define-lt_errno_nz"><strong>LT_ERRNO_NZ</strong></a> (ret) <br></td>
+</tr>
+<tr>
+<td align="right">define</td>
+<td align="left"><a href="./#define-lt_f"><strong>LT_F</strong></a> (...) LT_LOG(LT_LEVEL_FATAL, __FUNCTION__, __LINE__, __VA_ARGS__)<br></td>
+</tr>
+<tr>
+<td align="right">define</td>
+<td align="left"><a href="./#define-lt_heap_i"><strong>LT_HEAP_I</strong></a> () <br></td>
+</tr>
+<tr>
+<td align="right">define</td>
+<td align="left"><a href="./#define-lt_i"><strong>LT_I</strong></a> (...) LT_LOG(LT_LEVEL_INFO, __FUNCTION__, __LINE__, __VA_ARGS__)<br></td>
+</tr>
+<tr>
+<td align="right">define</td>
+<td align="left"><a href="./#define-lt_log"><strong>LT_LOG</strong></a> (level, caller, line, ...) lt_log(level, caller, line, __VA_ARGS__)<br></td>
+</tr>
+<tr>
+<td align="right">define</td>
+<td align="left"><a href="./#define-lt_ret"><strong>LT_RET</strong></a> (ret) <br></td>
+</tr>
+<tr>
+<td align="right">define</td>
+<td align="left"><a href="./#define-lt_ret_lez"><strong>LT_RET_LEZ</strong></a> (ret) <br></td>
+</tr>
+<tr>
+<td align="right">define</td>
+<td align="left"><a href="./#define-lt_ret_lz"><strong>LT_RET_LZ</strong></a> (ret) <br></td>
+</tr>
+<tr>
+<td align="right">define</td>
+<td align="left"><a href="./#define-lt_ret_nz"><strong>LT_RET_NZ</strong></a> (ret) <br></td>
+</tr>
+<tr>
+<td align="right">define</td>
+<td align="left"><a href="./#define-lt_t"><strong>LT_T</strong></a> (...) <br></td>
+</tr>
+<tr>
+<td align="right">define</td>
+<td align="left"><a href="./#define-lt_t_mod"><strong>LT_T_MOD</strong></a> (module, ...) <br></td>
+</tr>
+<tr>
+<td align="right">define</td>
+<td align="left"><a href="./#define-lt_t_ssl"><strong>LT_T_SSL</strong></a> (...) LT_T_MOD(LT_DEBUG_SSL, __VA_ARGS__)<br></td>
+</tr>
+<tr>
+<td align="right">define</td>
+<td align="left"><a href="./#define-lt_t_wap"><strong>LT_T_WAP</strong></a> (...) LT_T_MOD(LT_DEBUG_WIFI_AP, __VA_ARGS__)<br></td>
+</tr>
+<tr>
+<td align="right">define</td>
+<td align="left"><a href="./#define-lt_t_wc"><strong>LT_T_WC</strong></a> (...) LT_T_MOD(LT_DEBUG_WIFI_CLIENT, __VA_ARGS__)<br></td>
+</tr>
+<tr>
+<td align="right">define</td>
+<td align="left"><a href="./#define-lt_t_wg"><strong>LT_T_WG</strong></a> (...) LT_T_MOD(LT_DEBUG_WIFI, __VA_ARGS__)<br></td>
+</tr>
+<tr>
+<td align="right">define</td>
+<td align="left"><a href="./#define-lt_t_ws"><strong>LT_T_WS</strong></a> (...) LT_T_MOD(LT_DEBUG_WIFI_SERVER, __VA_ARGS__)<br></td>
+</tr>
+<tr>
+<td align="right">define</td>
+<td align="left"><a href="./#define-lt_t_wsta"><strong>LT_T_WSTA</strong></a> (...) LT_T_MOD(LT_DEBUG_WIFI_STA, __VA_ARGS__)<br></td>
+</tr>
+<tr>
+<td align="right">define</td>
+<td align="left"><a href="./#define-lt_v"><strong>LT_V</strong></a> (...) <br></td>
+</tr>
+<tr>
+<td align="right">define</td>
+<td align="left"><a href="./#define-lt_v_ssl"><strong>LT_V_SSL</strong></a> (...) LT_T_MOD(LT_DEBUG_SSL, __VA_ARGS__)<br></td>
+</tr>
+<tr>
+<td align="right">define</td>
+<td align="left"><a href="./#define-lt_v_wap"><strong>LT_V_WAP</strong></a> (...) LT_T_MOD(LT_DEBUG_WIFI_AP, __VA_ARGS__)<br></td>
+</tr>
+<tr>
+<td align="right">define</td>
+<td align="left"><a href="./#define-lt_v_wc"><strong>LT_V_WC</strong></a> (...) LT_T_MOD(LT_DEBUG_WIFI_CLIENT, __VA_ARGS__)<br></td>
+</tr>
+<tr>
+<td align="right">define</td>
+<td align="left"><a href="./#define-lt_v_wg"><strong>LT_V_WG</strong></a> (...) LT_T_MOD(LT_DEBUG_WIFI, __VA_ARGS__)<br></td>
+</tr>
+<tr>
+<td align="right">define</td>
+<td align="left"><a href="./#define-lt_v_ws"><strong>LT_V_WS</strong></a> (...) LT_T_MOD(LT_DEBUG_WIFI_SERVER, __VA_ARGS__)<br></td>
+</tr>
+<tr>
+<td align="right">define</td>
+<td align="left"><a href="./#define-lt_v_wsta"><strong>LT_V_WSTA</strong></a> (...) LT_T_MOD(LT_DEBUG_WIFI_STA, __VA_ARGS__)<br></td>
+</tr>
+<tr>
+<td align="right">define</td>
+<td align="left"><a href="./#define-lt_w"><strong>LT_W</strong></a> (...) LT_LOG(LT_LEVEL_WARN, __FUNCTION__, __LINE__, __VA_ARGS__)<br></td>
+</tr>
+<tr>
+<td align="right">define</td>
+<td align="left"><a href="./#define-ets_printf"><strong>ets_printf</strong></a> (...) LT_I(__VA_ARGS__)<br></td>
+</tr>
+<tr>
+<td align="right">define</td>
+<td align="left"><a href="./#define-isr_log_d"><strong>isr_log_d</strong></a> (...) LT_D(__VA_ARGS__)<br></td>
+</tr>
+<tr>
+<td align="right">define</td>
+<td align="left"><a href="./#define-isr_log_e"><strong>isr_log_e</strong></a> (...) LT_E(__VA_ARGS__)<br></td>
+</tr>
+<tr>
+<td align="right">define</td>
+<td align="left"><a href="./#define-isr_log_i"><strong>isr_log_i</strong></a> (...) LT_I(__VA_ARGS__)<br></td>
+</tr>
+<tr>
+<td align="right">define</td>
+<td align="left"><a href="./#define-isr_log_n"><strong>isr_log_n</strong></a> (...) LT_E(__VA_ARGS__)<br></td>
+</tr>
+<tr>
+<td align="right">define</td>
+<td align="left"><a href="./#define-isr_log_v"><strong>isr_log_v</strong></a> (...) LT_V(__VA_ARGS__)<br></td>
+</tr>
+<tr>
+<td align="right">define</td>
+<td align="left"><a href="./#define-isr_log_w"><strong>isr_log_w</strong></a> (...) LT_W(__VA_ARGS__)<br></td>
+</tr>
+<tr>
+<td align="right">define</td>
+<td align="left"><a href="./#define-log_d"><strong>log_d</strong></a> (...) LT_D(__VA_ARGS__)<br></td>
+</tr>
+<tr>
+<td align="right">define</td>
+<td align="left"><a href="./#define-log_e"><strong>log_e</strong></a> (...) LT_E(__VA_ARGS__)<br></td>
+</tr>
+<tr>
+<td align="right">define</td>
+<td align="left"><a href="./#define-log_i"><strong>log_i</strong></a> (...) LT_I(__VA_ARGS__)<br></td>
+</tr>
+<tr>
+<td align="right">define</td>
+<td align="left"><a href="./#define-log_n"><strong>log_n</strong></a> (...) LT_E(__VA_ARGS__)<br></td>
+</tr>
+<tr>
+<td align="right">define</td>
+<td align="left"><a href="./#define-log_printf"><strong>log_printf</strong></a> (...) LT_I(__VA_ARGS__)<br></td>
+</tr>
+<tr>
+<td align="right">define</td>
+<td align="left"><a href="./#define-log_v"><strong>log_v</strong></a> (...) LT_V(__VA_ARGS__)<br></td>
+</tr>
+<tr>
+<td align="right">define</td>
+<td align="left"><a href="./#define-log_w"><strong>log_w</strong></a> (...) LT_W(__VA_ARGS__)<br></td>
+</tr>
+</tbody>
+</table>
+<h2 id="public-functions-documentation">Public Functions Documentation</h2>
+<h3 id="function-lt_log">function lt_log</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kt">void</span><span class="w"> </span><span class="n">lt_log</span><span class="w"> </span><span class="p">(</span><span class="w"></span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="kt">uint8_t</span><span class="w"> </span><span class="n">level</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">caller</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">short</span><span class="w"> </span><span class="n">line</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">format</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">    </span><span class="p">...</span><span class="w"></span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="p">)</span><span class="w"> </span>
+</code></pre></div>
+<h3 id="function-lt_log_set_port">function lt_log_set_port</h3>
+<p><em>Change log output port.</em> 
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kt">void</span><span class="w"> </span><span class="n">lt_log_set_port</span><span class="w"> </span><span class="p">(</span><span class="w"></span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">    </span><span class="kt">uint8_t</span><span class="w"> </span><span class="n">port</span><span class="w"></span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="p">)</span><span class="w"> </span>
+</code></pre></div></p>
+<p><strong>Parameters:</strong></p>
+<ul>
+<li><code>port</code> UART port index - can be 0, 1 or 2 </li>
+</ul>
+<h2 id="macro-definition-documentation">Macro Definition Documentation</h2>
+<h3 id="define-esp_early_logd">define ESP_EARLY_LOGD</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="cp">#define ESP_EARLY_LOGD (</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">    </span><span class="p">...</span><span class="w"></span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="p">)</span><span class="w"> </span><span class="n">LT_D</span><span class="p">(</span><span class="n">__VA_ARGS__</span><span class="p">)</span><span class="w"></span>
+</code></pre></div>
+<h3 id="define-esp_early_loge">define ESP_EARLY_LOGE</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="cp">#define ESP_EARLY_LOGE (</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w">    </span><span class="p">...</span><span class="w"></span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="p">)</span><span class="w"> </span><span class="n">LT_E</span><span class="p">(</span><span class="n">__VA_ARGS__</span><span class="p">)</span><span class="w"></span>
+</code></pre></div>
+<h3 id="define-esp_early_logi">define ESP_EARLY_LOGI</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="cp">#define ESP_EARLY_LOGI (</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="w">    </span><span class="p">...</span><span class="w"></span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="p">)</span><span class="w"> </span><span class="n">LT_I</span><span class="p">(</span><span class="n">__VA_ARGS__</span><span class="p">)</span><span class="w"></span>
+</code></pre></div>
+<h3 id="define-esp_early_logv">define ESP_EARLY_LOGV</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="cp">#define ESP_EARLY_LOGV (</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="w">    </span><span class="p">...</span><span class="w"></span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="p">)</span><span class="w"> </span><span class="n">LT_V</span><span class="p">(</span><span class="n">__VA_ARGS__</span><span class="p">)</span><span class="w"></span>
+</code></pre></div>
+<h3 id="define-esp_early_logw">define ESP_EARLY_LOGW</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="cp">#define ESP_EARLY_LOGW (</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="w">    </span><span class="p">...</span><span class="w"></span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="p">)</span><span class="w"> </span><span class="n">LT_W</span><span class="p">(</span><span class="n">__VA_ARGS__</span><span class="p">)</span><span class="w"></span>
+</code></pre></div>
+<h3 id="define-esp_logd">define ESP_LOGD</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="cp">#define ESP_LOGD (</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="w">    </span><span class="p">...</span><span class="w"></span>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="p">)</span><span class="w"> </span><span class="n">LT_D</span><span class="p">(</span><span class="n">__VA_ARGS__</span><span class="p">)</span><span class="w"></span>
+</code></pre></div>
+<h3 id="define-esp_loge">define ESP_LOGE</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="cp">#define ESP_LOGE (</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="w">    </span><span class="p">...</span><span class="w"></span>
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="p">)</span><span class="w"> </span><span class="n">LT_E</span><span class="p">(</span><span class="n">__VA_ARGS__</span><span class="p">)</span><span class="w"></span>
+</code></pre></div>
+<h3 id="define-esp_logi">define ESP_LOGI</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="cp">#define ESP_LOGI (</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="w">    </span><span class="p">...</span><span class="w"></span>
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="p">)</span><span class="w"> </span><span class="n">LT_I</span><span class="p">(</span><span class="n">__VA_ARGS__</span><span class="p">)</span><span class="w"></span>
+</code></pre></div>
+<h3 id="define-esp_logv">define ESP_LOGV</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="cp">#define ESP_LOGV (</span>
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="w">    </span><span class="p">...</span><span class="w"></span>
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="p">)</span><span class="w"> </span><span class="n">LT_V</span><span class="p">(</span><span class="n">__VA_ARGS__</span><span class="p">)</span><span class="w"></span>
+</code></pre></div>
+<h3 id="define-esp_logw">define ESP_LOGW</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="cp">#define ESP_LOGW (</span>
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="w">    </span><span class="p">...</span><span class="w"></span>
+<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="p">)</span><span class="w"> </span><span class="n">LT_W</span><span class="p">(</span><span class="n">__VA_ARGS__</span><span class="p">)</span><span class="w"></span>
+</code></pre></div>
+<h3 id="define-ets_printf">define ETS_PRINTF</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="cp">#define ETS_PRINTF (</span>
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="w">    </span><span class="p">...</span><span class="w"></span>
+<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="p">)</span><span class="w"> </span><span class="n">LT_I</span><span class="p">(</span><span class="n">__VA_ARGS__</span><span class="p">)</span><span class="w"></span>
+</code></pre></div>
+<h3 id="define-lt_d">define LT_D</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="cp">#define LT_D (</span>
+<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="w">    </span><span class="p">...</span><span class="w"></span>
+<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="p">)</span><span class="w"> </span>
+</code></pre></div>
+<h3 id="define-lt_d_mod">define LT_D_MOD</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="cp">#define LT_D_MOD (</span>
+<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="w">    </span><span class="k">module</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a><span class="w">    </span><span class="p">...</span><span class="w"></span>
+<a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a><span class="p">)</span><span class="w"> </span><span class="k">do</span><span class="w"> </span><span class="p">{</span><span class="w">                                                                                                               </span>\
+<a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="k">module</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">                                                                                                  </span>\
+<a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a><span class="w">            </span><span class="n">LT_D</span><span class="p">(</span><span class="n">__VA_ARGS__</span><span class="p">);</span><span class="w">                                                                                         </span>\
+<a id="__codelineno-14-7" name="__codelineno-14-7" href="#__codelineno-14-7"></a><span class="w">        </span><span class="p">}</span><span class="w">                                                                                                              </span>\
+<a id="__codelineno-14-8" name="__codelineno-14-8" href="#__codelineno-14-8"></a><span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="w"></span>
+</code></pre></div>
+<h3 id="define-lt_d_ssl">define LT_D_SSL</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="cp">#define LT_D_SSL (</span>
+<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a><span class="w">    </span><span class="p">...</span><span class="w"></span>
+<a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a><span class="p">)</span><span class="w"> </span><span class="n">LT_D_MOD</span><span class="p">(</span><span class="n">LT_DEBUG_SSL</span><span class="p">,</span><span class="w"> </span><span class="n">__VA_ARGS__</span><span class="p">)</span><span class="w"></span>
+</code></pre></div>
+<h3 id="define-lt_d_wap">define LT_D_WAP</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="cp">#define LT_D_WAP (</span>
+<a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a><span class="w">    </span><span class="p">...</span><span class="w"></span>
+<a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a><span class="p">)</span><span class="w"> </span><span class="n">LT_D_MOD</span><span class="p">(</span><span class="n">LT_DEBUG_WIFI_AP</span><span class="p">,</span><span class="w"> </span><span class="n">__VA_ARGS__</span><span class="p">)</span><span class="w"></span>
+</code></pre></div>
+<h3 id="define-lt_d_wc">define LT_D_WC</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="cp">#define LT_D_WC (</span>
+<a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a><span class="w">    </span><span class="p">...</span><span class="w"></span>
+<a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a><span class="p">)</span><span class="w"> </span><span class="n">LT_D_MOD</span><span class="p">(</span><span class="n">LT_DEBUG_WIFI_CLIENT</span><span class="p">,</span><span class="w"> </span><span class="n">__VA_ARGS__</span><span class="p">)</span><span class="w"></span>
+</code></pre></div>
+<h3 id="define-lt_d_wg">define LT_D_WG</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="cp">#define LT_D_WG (</span>
+<a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a><span class="w">    </span><span class="p">...</span><span class="w"></span>
+<a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a><span class="p">)</span><span class="w"> </span><span class="n">LT_D_MOD</span><span class="p">(</span><span class="n">LT_DEBUG_WIFI</span><span class="p">,</span><span class="w"> </span><span class="n">__VA_ARGS__</span><span class="p">)</span><span class="w"></span>
+</code></pre></div>
+<h3 id="define-lt_d_ws">define LT_D_WS</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="cp">#define LT_D_WS (</span>
+<a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a><span class="w">    </span><span class="p">...</span><span class="w"></span>
+<a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a><span class="p">)</span><span class="w"> </span><span class="n">LT_D_MOD</span><span class="p">(</span><span class="n">LT_DEBUG_WIFI_SERVER</span><span class="p">,</span><span class="w"> </span><span class="n">__VA_ARGS__</span><span class="p">)</span><span class="w"></span>
+</code></pre></div>
+<h3 id="define-lt_d_wsta">define LT_D_WSTA</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="cp">#define LT_D_WSTA (</span>
+<a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a><span class="w">    </span><span class="p">...</span><span class="w"></span>
+<a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a><span class="p">)</span><span class="w"> </span><span class="n">LT_D_MOD</span><span class="p">(</span><span class="n">LT_DEBUG_WIFI_STA</span><span class="p">,</span><span class="w"> </span><span class="n">__VA_ARGS__</span><span class="p">)</span><span class="w"></span>
+</code></pre></div>
+<h3 id="define-lt_e">define LT_E</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="cp">#define LT_E (</span>
+<a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a><span class="w">    </span><span class="p">...</span><span class="w"></span>
+<a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a><span class="p">)</span><span class="w"> </span><span class="n">LT_LOG</span><span class="p">(</span><span class="n">LT_LEVEL_ERROR</span><span class="p">,</span><span class="w"> </span><span class="n">__FUNCTION__</span><span class="p">,</span><span class="w"> </span><span class="n">__LINE__</span><span class="p">,</span><span class="w"> </span><span class="n">__VA_ARGS__</span><span class="p">)</span><span class="w"></span>
+</code></pre></div>
+<h3 id="define-lt_errno">define LT_ERRNO</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a><span class="cp">#define LT_ERRNO (</span>
+<a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a>
+<a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a><span class="p">)</span><span class="w"> </span>
+</code></pre></div>
+<h3 id="define-lt_errno_lez">define LT_ERRNO_LEZ</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a><span class="cp">#define LT_ERRNO_LEZ (</span>
+<a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a><span class="w">    </span><span class="n">ret</span><span class="w"></span>
+<a id="__codelineno-23-3" name="__codelineno-23-3" href="#__codelineno-23-3"></a><span class="p">)</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">ret</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">                                                                                                    </span>\
+<a id="__codelineno-23-4" name="__codelineno-23-4" href="#__codelineno-23-4"></a><span class="w">        </span><span class="n">LT_E</span><span class="p">(</span><span class="s">&quot;errno=%d, ret=%d&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">errno</span><span class="p">,</span><span class="w"> </span><span class="n">ret</span><span class="p">);</span><span class="w">                                                                          </span>\
+<a id="__codelineno-23-5" name="__codelineno-23-5" href="#__codelineno-23-5"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">ret</span><span class="p">;</span><span class="w">                                                                                                    </span>\
+<a id="__codelineno-23-6" name="__codelineno-23-6" href="#__codelineno-23-6"></a><span class="w">    </span><span class="p">}</span><span class="w"></span>
+</code></pre></div>
+<h3 id="define-lt_errno_lz">define LT_ERRNO_LZ</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a><span class="cp">#define LT_ERRNO_LZ (</span>
+<a id="__codelineno-24-2" name="__codelineno-24-2" href="#__codelineno-24-2"></a><span class="w">    </span><span class="n">ret</span><span class="w"></span>
+<a id="__codelineno-24-3" name="__codelineno-24-3" href="#__codelineno-24-3"></a><span class="p">)</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">ret</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">                                                                                                     </span>\
+<a id="__codelineno-24-4" name="__codelineno-24-4" href="#__codelineno-24-4"></a><span class="w">        </span><span class="n">LT_E</span><span class="p">(</span><span class="s">&quot;errno=%d, ret=%d&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">errno</span><span class="p">,</span><span class="w"> </span><span class="n">ret</span><span class="p">);</span><span class="w">                                                                          </span>\
+<a id="__codelineno-24-5" name="__codelineno-24-5" href="#__codelineno-24-5"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">ret</span><span class="p">;</span><span class="w">                                                                                                    </span>\
+<a id="__codelineno-24-6" name="__codelineno-24-6" href="#__codelineno-24-6"></a><span class="w">    </span><span class="p">}</span><span class="w"></span>
+</code></pre></div>
+<h3 id="define-lt_errno_nz">define LT_ERRNO_NZ</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a><span class="cp">#define LT_ERRNO_NZ (</span>
+<a id="__codelineno-25-2" name="__codelineno-25-2" href="#__codelineno-25-2"></a><span class="w">    </span><span class="n">ret</span><span class="w"></span>
+<a id="__codelineno-25-3" name="__codelineno-25-3" href="#__codelineno-25-3"></a><span class="p">)</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">ret</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">                                                                                                         </span>\
+<a id="__codelineno-25-4" name="__codelineno-25-4" href="#__codelineno-25-4"></a><span class="w">        </span><span class="n">LT_E</span><span class="p">(</span><span class="s">&quot;errno=%d, ret=%d&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">errno</span><span class="p">,</span><span class="w"> </span><span class="n">ret</span><span class="p">);</span><span class="w">                                                                          </span>\
+<a id="__codelineno-25-5" name="__codelineno-25-5" href="#__codelineno-25-5"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">ret</span><span class="p">;</span><span class="w">                                                                                                    </span>\
+<a id="__codelineno-25-6" name="__codelineno-25-6" href="#__codelineno-25-6"></a><span class="w">    </span><span class="p">}</span><span class="w"></span>
+</code></pre></div>
+<h3 id="define-lt_f">define LT_F</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a><span class="cp">#define LT_F (</span>
+<a id="__codelineno-26-2" name="__codelineno-26-2" href="#__codelineno-26-2"></a><span class="w">    </span><span class="p">...</span><span class="w"></span>
+<a id="__codelineno-26-3" name="__codelineno-26-3" href="#__codelineno-26-3"></a><span class="p">)</span><span class="w"> </span><span class="n">LT_LOG</span><span class="p">(</span><span class="n">LT_LEVEL_FATAL</span><span class="p">,</span><span class="w"> </span><span class="n">__FUNCTION__</span><span class="p">,</span><span class="w"> </span><span class="n">__LINE__</span><span class="p">,</span><span class="w"> </span><span class="n">__VA_ARGS__</span><span class="p">)</span><span class="w"></span>
+</code></pre></div>
+<h3 id="define-lt_heap_i">define LT_HEAP_I</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a><span class="cp">#define LT_HEAP_I (</span>
+<a id="__codelineno-27-2" name="__codelineno-27-2" href="#__codelineno-27-2"></a>
+<a id="__codelineno-27-3" name="__codelineno-27-3" href="#__codelineno-27-3"></a><span class="p">)</span><span class="w"> </span>
+</code></pre></div>
+<h3 id="define-lt_i">define LT_I</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a><span class="cp">#define LT_I (</span>
+<a id="__codelineno-28-2" name="__codelineno-28-2" href="#__codelineno-28-2"></a><span class="w">    </span><span class="p">...</span><span class="w"></span>
+<a id="__codelineno-28-3" name="__codelineno-28-3" href="#__codelineno-28-3"></a><span class="p">)</span><span class="w"> </span><span class="n">LT_LOG</span><span class="p">(</span><span class="n">LT_LEVEL_INFO</span><span class="p">,</span><span class="w"> </span><span class="n">__FUNCTION__</span><span class="p">,</span><span class="w"> </span><span class="n">__LINE__</span><span class="p">,</span><span class="w"> </span><span class="n">__VA_ARGS__</span><span class="p">)</span><span class="w"></span>
+</code></pre></div>
+<h3 id="define-lt_log">define LT_LOG</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a><span class="cp">#define LT_LOG (</span>
+<a id="__codelineno-29-2" name="__codelineno-29-2" href="#__codelineno-29-2"></a><span class="w">    </span><span class="n">level</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-29-3" name="__codelineno-29-3" href="#__codelineno-29-3"></a><span class="w">    </span><span class="n">caller</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-29-4" name="__codelineno-29-4" href="#__codelineno-29-4"></a><span class="w">    </span><span class="n">line</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-29-5" name="__codelineno-29-5" href="#__codelineno-29-5"></a><span class="w">    </span><span class="p">...</span><span class="w"></span>
+<a id="__codelineno-29-6" name="__codelineno-29-6" href="#__codelineno-29-6"></a><span class="p">)</span><span class="w"> </span><span class="n">lt_log</span><span class="p">(</span><span class="n">level</span><span class="p">,</span><span class="w"> </span><span class="n">caller</span><span class="p">,</span><span class="w"> </span><span class="n">line</span><span class="p">,</span><span class="w"> </span><span class="n">__VA_ARGS__</span><span class="p">)</span><span class="w"></span>
+</code></pre></div>
+<h3 id="define-lt_ret">define LT_RET</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a><span class="cp">#define LT_RET (</span>
+<a id="__codelineno-30-2" name="__codelineno-30-2" href="#__codelineno-30-2"></a><span class="w">    </span><span class="n">ret</span><span class="w"></span>
+<a id="__codelineno-30-3" name="__codelineno-30-3" href="#__codelineno-30-3"></a><span class="p">)</span><span class="w"> </span><span class="n">LT_E</span><span class="p">(</span><span class="s">&quot;ret=%d&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">ret</span><span class="p">);</span><span class="w">                                                                                               </span>\
+<a id="__codelineno-30-4" name="__codelineno-30-4" href="#__codelineno-30-4"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">ret</span><span class="p">;</span><span class="w"></span>
+</code></pre></div>
+<h3 id="define-lt_ret_lez">define LT_RET_LEZ</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a><span class="cp">#define LT_RET_LEZ (</span>
+<a id="__codelineno-31-2" name="__codelineno-31-2" href="#__codelineno-31-2"></a><span class="w">    </span><span class="n">ret</span><span class="w"></span>
+<a id="__codelineno-31-3" name="__codelineno-31-3" href="#__codelineno-31-3"></a><span class="p">)</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">ret</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">                                                                                                    </span>\
+<a id="__codelineno-31-4" name="__codelineno-31-4" href="#__codelineno-31-4"></a><span class="w">        </span><span class="n">LT_E</span><span class="p">(</span><span class="s">&quot;ret=%d&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">ret</span><span class="p">);</span><span class="w">                                                                                           </span>\
+<a id="__codelineno-31-5" name="__codelineno-31-5" href="#__codelineno-31-5"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">ret</span><span class="p">;</span><span class="w">                                                                                                    </span>\
+<a id="__codelineno-31-6" name="__codelineno-31-6" href="#__codelineno-31-6"></a><span class="w">    </span><span class="p">}</span><span class="w"></span>
+</code></pre></div>
+<h3 id="define-lt_ret_lz">define LT_RET_LZ</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-32-1" name="__codelineno-32-1" href="#__codelineno-32-1"></a><span class="cp">#define LT_RET_LZ (</span>
+<a id="__codelineno-32-2" name="__codelineno-32-2" href="#__codelineno-32-2"></a><span class="w">    </span><span class="n">ret</span><span class="w"></span>
+<a id="__codelineno-32-3" name="__codelineno-32-3" href="#__codelineno-32-3"></a><span class="p">)</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">ret</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">                                                                                                     </span>\
+<a id="__codelineno-32-4" name="__codelineno-32-4" href="#__codelineno-32-4"></a><span class="w">        </span><span class="n">LT_E</span><span class="p">(</span><span class="s">&quot;ret=%d&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">ret</span><span class="p">);</span><span class="w">                                                                                           </span>\
+<a id="__codelineno-32-5" name="__codelineno-32-5" href="#__codelineno-32-5"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">ret</span><span class="p">;</span><span class="w">                                                                                                    </span>\
+<a id="__codelineno-32-6" name="__codelineno-32-6" href="#__codelineno-32-6"></a><span class="w">    </span><span class="p">}</span><span class="w"></span>
+</code></pre></div>
+<h3 id="define-lt_ret_nz">define LT_RET_NZ</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-33-1" name="__codelineno-33-1" href="#__codelineno-33-1"></a><span class="cp">#define LT_RET_NZ (</span>
+<a id="__codelineno-33-2" name="__codelineno-33-2" href="#__codelineno-33-2"></a><span class="w">    </span><span class="n">ret</span><span class="w"></span>
+<a id="__codelineno-33-3" name="__codelineno-33-3" href="#__codelineno-33-3"></a><span class="p">)</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">ret</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">                                                                                                         </span>\
+<a id="__codelineno-33-4" name="__codelineno-33-4" href="#__codelineno-33-4"></a><span class="w">        </span><span class="n">LT_E</span><span class="p">(</span><span class="s">&quot;ret=%d&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">ret</span><span class="p">);</span><span class="w">                                                                                           </span>\
+<a id="__codelineno-33-5" name="__codelineno-33-5" href="#__codelineno-33-5"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">ret</span><span class="p">;</span><span class="w">                                                                                                    </span>\
+<a id="__codelineno-33-6" name="__codelineno-33-6" href="#__codelineno-33-6"></a><span class="w">    </span><span class="p">}</span><span class="w"></span>
+</code></pre></div>
+<h3 id="define-lt_t">define LT_T</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-34-1" name="__codelineno-34-1" href="#__codelineno-34-1"></a><span class="cp">#define LT_T (</span>
+<a id="__codelineno-34-2" name="__codelineno-34-2" href="#__codelineno-34-2"></a><span class="w">    </span><span class="p">...</span><span class="w"></span>
+<a id="__codelineno-34-3" name="__codelineno-34-3" href="#__codelineno-34-3"></a><span class="p">)</span><span class="w"> </span>
+</code></pre></div>
+<h3 id="define-lt_t_mod">define LT_T_MOD</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-35-1" name="__codelineno-35-1" href="#__codelineno-35-1"></a><span class="cp">#define LT_T_MOD (</span>
+<a id="__codelineno-35-2" name="__codelineno-35-2" href="#__codelineno-35-2"></a><span class="w">    </span><span class="k">module</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-35-3" name="__codelineno-35-3" href="#__codelineno-35-3"></a><span class="w">    </span><span class="p">...</span><span class="w"></span>
+<a id="__codelineno-35-4" name="__codelineno-35-4" href="#__codelineno-35-4"></a><span class="p">)</span><span class="w"> </span><span class="k">do</span><span class="w"> </span><span class="p">{</span><span class="w">                                                                                                               </span>\
+<a id="__codelineno-35-5" name="__codelineno-35-5" href="#__codelineno-35-5"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="k">module</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">                                                                                                  </span>\
+<a id="__codelineno-35-6" name="__codelineno-35-6" href="#__codelineno-35-6"></a><span class="w">            </span><span class="n">LT_T</span><span class="p">(</span><span class="n">__VA_ARGS__</span><span class="p">);</span><span class="w">                                                                                         </span>\
+<a id="__codelineno-35-7" name="__codelineno-35-7" href="#__codelineno-35-7"></a><span class="w">        </span><span class="p">}</span><span class="w">                                                                                                              </span>\
+<a id="__codelineno-35-8" name="__codelineno-35-8" href="#__codelineno-35-8"></a><span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="w"></span>
+</code></pre></div>
+<h3 id="define-lt_t_ssl">define LT_T_SSL</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-36-1" name="__codelineno-36-1" href="#__codelineno-36-1"></a><span class="cp">#define LT_T_SSL (</span>
+<a id="__codelineno-36-2" name="__codelineno-36-2" href="#__codelineno-36-2"></a><span class="w">    </span><span class="p">...</span><span class="w"></span>
+<a id="__codelineno-36-3" name="__codelineno-36-3" href="#__codelineno-36-3"></a><span class="p">)</span><span class="w"> </span><span class="n">LT_T_MOD</span><span class="p">(</span><span class="n">LT_DEBUG_SSL</span><span class="p">,</span><span class="w"> </span><span class="n">__VA_ARGS__</span><span class="p">)</span><span class="w"></span>
+</code></pre></div>
+<h3 id="define-lt_t_wap">define LT_T_WAP</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-37-1" name="__codelineno-37-1" href="#__codelineno-37-1"></a><span class="cp">#define LT_T_WAP (</span>
+<a id="__codelineno-37-2" name="__codelineno-37-2" href="#__codelineno-37-2"></a><span class="w">    </span><span class="p">...</span><span class="w"></span>
+<a id="__codelineno-37-3" name="__codelineno-37-3" href="#__codelineno-37-3"></a><span class="p">)</span><span class="w"> </span><span class="n">LT_T_MOD</span><span class="p">(</span><span class="n">LT_DEBUG_WIFI_AP</span><span class="p">,</span><span class="w"> </span><span class="n">__VA_ARGS__</span><span class="p">)</span><span class="w"></span>
+</code></pre></div>
+<h3 id="define-lt_t_wc">define LT_T_WC</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-38-1" name="__codelineno-38-1" href="#__codelineno-38-1"></a><span class="cp">#define LT_T_WC (</span>
+<a id="__codelineno-38-2" name="__codelineno-38-2" href="#__codelineno-38-2"></a><span class="w">    </span><span class="p">...</span><span class="w"></span>
+<a id="__codelineno-38-3" name="__codelineno-38-3" href="#__codelineno-38-3"></a><span class="p">)</span><span class="w"> </span><span class="n">LT_T_MOD</span><span class="p">(</span><span class="n">LT_DEBUG_WIFI_CLIENT</span><span class="p">,</span><span class="w"> </span><span class="n">__VA_ARGS__</span><span class="p">)</span><span class="w"></span>
+</code></pre></div>
+<h3 id="define-lt_t_wg">define LT_T_WG</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-39-1" name="__codelineno-39-1" href="#__codelineno-39-1"></a><span class="cp">#define LT_T_WG (</span>
+<a id="__codelineno-39-2" name="__codelineno-39-2" href="#__codelineno-39-2"></a><span class="w">    </span><span class="p">...</span><span class="w"></span>
+<a id="__codelineno-39-3" name="__codelineno-39-3" href="#__codelineno-39-3"></a><span class="p">)</span><span class="w"> </span><span class="n">LT_T_MOD</span><span class="p">(</span><span class="n">LT_DEBUG_WIFI</span><span class="p">,</span><span class="w"> </span><span class="n">__VA_ARGS__</span><span class="p">)</span><span class="w"></span>
+</code></pre></div>
+<h3 id="define-lt_t_ws">define LT_T_WS</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-40-1" name="__codelineno-40-1" href="#__codelineno-40-1"></a><span class="cp">#define LT_T_WS (</span>
+<a id="__codelineno-40-2" name="__codelineno-40-2" href="#__codelineno-40-2"></a><span class="w">    </span><span class="p">...</span><span class="w"></span>
+<a id="__codelineno-40-3" name="__codelineno-40-3" href="#__codelineno-40-3"></a><span class="p">)</span><span class="w"> </span><span class="n">LT_T_MOD</span><span class="p">(</span><span class="n">LT_DEBUG_WIFI_SERVER</span><span class="p">,</span><span class="w"> </span><span class="n">__VA_ARGS__</span><span class="p">)</span><span class="w"></span>
+</code></pre></div>
+<h3 id="define-lt_t_wsta">define LT_T_WSTA</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-41-1" name="__codelineno-41-1" href="#__codelineno-41-1"></a><span class="cp">#define LT_T_WSTA (</span>
+<a id="__codelineno-41-2" name="__codelineno-41-2" href="#__codelineno-41-2"></a><span class="w">    </span><span class="p">...</span><span class="w"></span>
+<a id="__codelineno-41-3" name="__codelineno-41-3" href="#__codelineno-41-3"></a><span class="p">)</span><span class="w"> </span><span class="n">LT_T_MOD</span><span class="p">(</span><span class="n">LT_DEBUG_WIFI_STA</span><span class="p">,</span><span class="w"> </span><span class="n">__VA_ARGS__</span><span class="p">)</span><span class="w"></span>
+</code></pre></div>
+<h3 id="define-lt_v">define LT_V</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-42-1" name="__codelineno-42-1" href="#__codelineno-42-1"></a><span class="cp">#define LT_V (</span>
+<a id="__codelineno-42-2" name="__codelineno-42-2" href="#__codelineno-42-2"></a><span class="w">    </span><span class="p">...</span><span class="w"></span>
+<a id="__codelineno-42-3" name="__codelineno-42-3" href="#__codelineno-42-3"></a><span class="p">)</span><span class="w"> </span>
+</code></pre></div>
+<h3 id="define-lt_v_ssl">define LT_V_SSL</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-43-1" name="__codelineno-43-1" href="#__codelineno-43-1"></a><span class="cp">#define LT_V_SSL (</span>
+<a id="__codelineno-43-2" name="__codelineno-43-2" href="#__codelineno-43-2"></a><span class="w">    </span><span class="p">...</span><span class="w"></span>
+<a id="__codelineno-43-3" name="__codelineno-43-3" href="#__codelineno-43-3"></a><span class="p">)</span><span class="w"> </span><span class="n">LT_T_MOD</span><span class="p">(</span><span class="n">LT_DEBUG_SSL</span><span class="p">,</span><span class="w"> </span><span class="n">__VA_ARGS__</span><span class="p">)</span><span class="w"></span>
+</code></pre></div>
+<h3 id="define-lt_v_wap">define LT_V_WAP</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-44-1" name="__codelineno-44-1" href="#__codelineno-44-1"></a><span class="cp">#define LT_V_WAP (</span>
+<a id="__codelineno-44-2" name="__codelineno-44-2" href="#__codelineno-44-2"></a><span class="w">    </span><span class="p">...</span><span class="w"></span>
+<a id="__codelineno-44-3" name="__codelineno-44-3" href="#__codelineno-44-3"></a><span class="p">)</span><span class="w"> </span><span class="n">LT_T_MOD</span><span class="p">(</span><span class="n">LT_DEBUG_WIFI_AP</span><span class="p">,</span><span class="w"> </span><span class="n">__VA_ARGS__</span><span class="p">)</span><span class="w"></span>
+</code></pre></div>
+<h3 id="define-lt_v_wc">define LT_V_WC</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-45-1" name="__codelineno-45-1" href="#__codelineno-45-1"></a><span class="cp">#define LT_V_WC (</span>
+<a id="__codelineno-45-2" name="__codelineno-45-2" href="#__codelineno-45-2"></a><span class="w">    </span><span class="p">...</span><span class="w"></span>
+<a id="__codelineno-45-3" name="__codelineno-45-3" href="#__codelineno-45-3"></a><span class="p">)</span><span class="w"> </span><span class="n">LT_T_MOD</span><span class="p">(</span><span class="n">LT_DEBUG_WIFI_CLIENT</span><span class="p">,</span><span class="w"> </span><span class="n">__VA_ARGS__</span><span class="p">)</span><span class="w"></span>
+</code></pre></div>
+<h3 id="define-lt_v_wg">define LT_V_WG</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-46-1" name="__codelineno-46-1" href="#__codelineno-46-1"></a><span class="cp">#define LT_V_WG (</span>
+<a id="__codelineno-46-2" name="__codelineno-46-2" href="#__codelineno-46-2"></a><span class="w">    </span><span class="p">...</span><span class="w"></span>
+<a id="__codelineno-46-3" name="__codelineno-46-3" href="#__codelineno-46-3"></a><span class="p">)</span><span class="w"> </span><span class="n">LT_T_MOD</span><span class="p">(</span><span class="n">LT_DEBUG_WIFI</span><span class="p">,</span><span class="w"> </span><span class="n">__VA_ARGS__</span><span class="p">)</span><span class="w"></span>
+</code></pre></div>
+<h3 id="define-lt_v_ws">define LT_V_WS</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-47-1" name="__codelineno-47-1" href="#__codelineno-47-1"></a><span class="cp">#define LT_V_WS (</span>
+<a id="__codelineno-47-2" name="__codelineno-47-2" href="#__codelineno-47-2"></a><span class="w">    </span><span class="p">...</span><span class="w"></span>
+<a id="__codelineno-47-3" name="__codelineno-47-3" href="#__codelineno-47-3"></a><span class="p">)</span><span class="w"> </span><span class="n">LT_T_MOD</span><span class="p">(</span><span class="n">LT_DEBUG_WIFI_SERVER</span><span class="p">,</span><span class="w"> </span><span class="n">__VA_ARGS__</span><span class="p">)</span><span class="w"></span>
+</code></pre></div>
+<h3 id="define-lt_v_wsta">define LT_V_WSTA</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-48-1" name="__codelineno-48-1" href="#__codelineno-48-1"></a><span class="cp">#define LT_V_WSTA (</span>
+<a id="__codelineno-48-2" name="__codelineno-48-2" href="#__codelineno-48-2"></a><span class="w">    </span><span class="p">...</span><span class="w"></span>
+<a id="__codelineno-48-3" name="__codelineno-48-3" href="#__codelineno-48-3"></a><span class="p">)</span><span class="w"> </span><span class="n">LT_T_MOD</span><span class="p">(</span><span class="n">LT_DEBUG_WIFI_STA</span><span class="p">,</span><span class="w"> </span><span class="n">__VA_ARGS__</span><span class="p">)</span><span class="w"></span>
+</code></pre></div>
+<h3 id="define-lt_w">define LT_W</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-49-1" name="__codelineno-49-1" href="#__codelineno-49-1"></a><span class="cp">#define LT_W (</span>
+<a id="__codelineno-49-2" name="__codelineno-49-2" href="#__codelineno-49-2"></a><span class="w">    </span><span class="p">...</span><span class="w"></span>
+<a id="__codelineno-49-3" name="__codelineno-49-3" href="#__codelineno-49-3"></a><span class="p">)</span><span class="w"> </span><span class="n">LT_LOG</span><span class="p">(</span><span class="n">LT_LEVEL_WARN</span><span class="p">,</span><span class="w"> </span><span class="n">__FUNCTION__</span><span class="p">,</span><span class="w"> </span><span class="n">__LINE__</span><span class="p">,</span><span class="w"> </span><span class="n">__VA_ARGS__</span><span class="p">)</span><span class="w"></span>
+</code></pre></div>
+<h3 id="define-ets_printf_1">define ets_printf</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-50-1" name="__codelineno-50-1" href="#__codelineno-50-1"></a><span class="cp">#define ets_printf (</span>
+<a id="__codelineno-50-2" name="__codelineno-50-2" href="#__codelineno-50-2"></a><span class="w">    </span><span class="p">...</span><span class="w"></span>
+<a id="__codelineno-50-3" name="__codelineno-50-3" href="#__codelineno-50-3"></a><span class="p">)</span><span class="w"> </span><span class="n">LT_I</span><span class="p">(</span><span class="n">__VA_ARGS__</span><span class="p">)</span><span class="w"></span>
+</code></pre></div>
+<h3 id="define-isr_log_d">define isr_log_d</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-51-1" name="__codelineno-51-1" href="#__codelineno-51-1"></a><span class="cp">#define isr_log_d (</span>
+<a id="__codelineno-51-2" name="__codelineno-51-2" href="#__codelineno-51-2"></a><span class="w">    </span><span class="p">...</span><span class="w"></span>
+<a id="__codelineno-51-3" name="__codelineno-51-3" href="#__codelineno-51-3"></a><span class="p">)</span><span class="w"> </span><span class="n">LT_D</span><span class="p">(</span><span class="n">__VA_ARGS__</span><span class="p">)</span><span class="w"></span>
+</code></pre></div>
+<h3 id="define-isr_log_e">define isr_log_e</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-52-1" name="__codelineno-52-1" href="#__codelineno-52-1"></a><span class="cp">#define isr_log_e (</span>
+<a id="__codelineno-52-2" name="__codelineno-52-2" href="#__codelineno-52-2"></a><span class="w">    </span><span class="p">...</span><span class="w"></span>
+<a id="__codelineno-52-3" name="__codelineno-52-3" href="#__codelineno-52-3"></a><span class="p">)</span><span class="w"> </span><span class="n">LT_E</span><span class="p">(</span><span class="n">__VA_ARGS__</span><span class="p">)</span><span class="w"></span>
+</code></pre></div>
+<h3 id="define-isr_log_i">define isr_log_i</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-53-1" name="__codelineno-53-1" href="#__codelineno-53-1"></a><span class="cp">#define isr_log_i (</span>
+<a id="__codelineno-53-2" name="__codelineno-53-2" href="#__codelineno-53-2"></a><span class="w">    </span><span class="p">...</span><span class="w"></span>
+<a id="__codelineno-53-3" name="__codelineno-53-3" href="#__codelineno-53-3"></a><span class="p">)</span><span class="w"> </span><span class="n">LT_I</span><span class="p">(</span><span class="n">__VA_ARGS__</span><span class="p">)</span><span class="w"></span>
+</code></pre></div>
+<h3 id="define-isr_log_n">define isr_log_n</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-54-1" name="__codelineno-54-1" href="#__codelineno-54-1"></a><span class="cp">#define isr_log_n (</span>
+<a id="__codelineno-54-2" name="__codelineno-54-2" href="#__codelineno-54-2"></a><span class="w">    </span><span class="p">...</span><span class="w"></span>
+<a id="__codelineno-54-3" name="__codelineno-54-3" href="#__codelineno-54-3"></a><span class="p">)</span><span class="w"> </span><span class="n">LT_E</span><span class="p">(</span><span class="n">__VA_ARGS__</span><span class="p">)</span><span class="w"></span>
+</code></pre></div>
+<h3 id="define-isr_log_v">define isr_log_v</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-55-1" name="__codelineno-55-1" href="#__codelineno-55-1"></a><span class="cp">#define isr_log_v (</span>
+<a id="__codelineno-55-2" name="__codelineno-55-2" href="#__codelineno-55-2"></a><span class="w">    </span><span class="p">...</span><span class="w"></span>
+<a id="__codelineno-55-3" name="__codelineno-55-3" href="#__codelineno-55-3"></a><span class="p">)</span><span class="w"> </span><span class="n">LT_V</span><span class="p">(</span><span class="n">__VA_ARGS__</span><span class="p">)</span><span class="w"></span>
+</code></pre></div>
+<h3 id="define-isr_log_w">define isr_log_w</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-56-1" name="__codelineno-56-1" href="#__codelineno-56-1"></a><span class="cp">#define isr_log_w (</span>
+<a id="__codelineno-56-2" name="__codelineno-56-2" href="#__codelineno-56-2"></a><span class="w">    </span><span class="p">...</span><span class="w"></span>
+<a id="__codelineno-56-3" name="__codelineno-56-3" href="#__codelineno-56-3"></a><span class="p">)</span><span class="w"> </span><span class="n">LT_W</span><span class="p">(</span><span class="n">__VA_ARGS__</span><span class="p">)</span><span class="w"></span>
+</code></pre></div>
+<h3 id="define-log_d">define log_d</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-57-1" name="__codelineno-57-1" href="#__codelineno-57-1"></a><span class="cp">#define log_d (</span>
+<a id="__codelineno-57-2" name="__codelineno-57-2" href="#__codelineno-57-2"></a><span class="w">    </span><span class="p">...</span><span class="w"></span>
+<a id="__codelineno-57-3" name="__codelineno-57-3" href="#__codelineno-57-3"></a><span class="p">)</span><span class="w"> </span><span class="n">LT_D</span><span class="p">(</span><span class="n">__VA_ARGS__</span><span class="p">)</span><span class="w"></span>
+</code></pre></div>
+<h3 id="define-log_e">define log_e</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-58-1" name="__codelineno-58-1" href="#__codelineno-58-1"></a><span class="cp">#define log_e (</span>
+<a id="__codelineno-58-2" name="__codelineno-58-2" href="#__codelineno-58-2"></a><span class="w">    </span><span class="p">...</span><span class="w"></span>
+<a id="__codelineno-58-3" name="__codelineno-58-3" href="#__codelineno-58-3"></a><span class="p">)</span><span class="w"> </span><span class="n">LT_E</span><span class="p">(</span><span class="n">__VA_ARGS__</span><span class="p">)</span><span class="w"></span>
+</code></pre></div>
+<h3 id="define-log_i">define log_i</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-59-1" name="__codelineno-59-1" href="#__codelineno-59-1"></a><span class="cp">#define log_i (</span>
+<a id="__codelineno-59-2" name="__codelineno-59-2" href="#__codelineno-59-2"></a><span class="w">    </span><span class="p">...</span><span class="w"></span>
+<a id="__codelineno-59-3" name="__codelineno-59-3" href="#__codelineno-59-3"></a><span class="p">)</span><span class="w"> </span><span class="n">LT_I</span><span class="p">(</span><span class="n">__VA_ARGS__</span><span class="p">)</span><span class="w"></span>
+</code></pre></div>
+<h3 id="define-log_n">define log_n</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-60-1" name="__codelineno-60-1" href="#__codelineno-60-1"></a><span class="cp">#define log_n (</span>
+<a id="__codelineno-60-2" name="__codelineno-60-2" href="#__codelineno-60-2"></a><span class="w">    </span><span class="p">...</span><span class="w"></span>
+<a id="__codelineno-60-3" name="__codelineno-60-3" href="#__codelineno-60-3"></a><span class="p">)</span><span class="w"> </span><span class="n">LT_E</span><span class="p">(</span><span class="n">__VA_ARGS__</span><span class="p">)</span><span class="w"></span>
+</code></pre></div>
+<h3 id="define-log_printf">define log_printf</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-61-1" name="__codelineno-61-1" href="#__codelineno-61-1"></a><span class="cp">#define log_printf (</span>
+<a id="__codelineno-61-2" name="__codelineno-61-2" href="#__codelineno-61-2"></a><span class="w">    </span><span class="p">...</span><span class="w"></span>
+<a id="__codelineno-61-3" name="__codelineno-61-3" href="#__codelineno-61-3"></a><span class="p">)</span><span class="w"> </span><span class="n">LT_I</span><span class="p">(</span><span class="n">__VA_ARGS__</span><span class="p">)</span><span class="w"></span>
+</code></pre></div>
+<h3 id="define-log_v">define log_v</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-62-1" name="__codelineno-62-1" href="#__codelineno-62-1"></a><span class="cp">#define log_v (</span>
+<a id="__codelineno-62-2" name="__codelineno-62-2" href="#__codelineno-62-2"></a><span class="w">    </span><span class="p">...</span><span class="w"></span>
+<a id="__codelineno-62-3" name="__codelineno-62-3" href="#__codelineno-62-3"></a><span class="p">)</span><span class="w"> </span><span class="n">LT_V</span><span class="p">(</span><span class="n">__VA_ARGS__</span><span class="p">)</span><span class="w"></span>
+</code></pre></div>
+<h3 id="define-log_w">define log_w</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-63-1" name="__codelineno-63-1" href="#__codelineno-63-1"></a><span class="cp">#define log_w (</span>
+<a id="__codelineno-63-2" name="__codelineno-63-2" href="#__codelineno-63-2"></a><span class="w">    </span><span class="p">...</span><span class="w"></span>
+<a id="__codelineno-63-3" name="__codelineno-63-3" href="#__codelineno-63-3"></a><span class="p">)</span><span class="w"> </span><span class="n">LT_W</span><span class="p">(</span><span class="n">__VA_ARGS__</span><span class="p">)</span><span class="w"></span>
+</code></pre></div>
+<hr />
+<p>The documentation for this class was generated from the following file <code>arduino/libretuya/core/lt_logger.h</code></p>
+
+              
+            </article>
+            
+          </div>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+    <nav class="md-footer__inner md-grid" aria-label="Footer" >
+      
+        
+        <a href="../_libre_tuya_custom_8h/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Wiring custom methods" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Wiring custom methods
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../_chip_type_8h_source/" class="md-footer__link md-footer__link--next" aria-label="Next: Chip &amp; family IDs" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Chip & family IDs
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.b97dbffb.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.0238f547.min.js"></script>
+      
+    
+  </body>
+</html>

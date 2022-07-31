@@ -1,0 +1,17 @@
+{
+	"build": {
+		"family": "BK7231N",
+		"ldscript_sdk": "bk7231n_bsp.ld",
+		"ldscript_arduino": "bk7231n_bsp.ld"
+	},
+	"upload": {
+		"speed": 460800
+	},
+	"doc": {
+		"params": {
+			"extra": {
+				"Bluetooth": "BLE v5.1"
+			}
+		}
+	}
+}
